@@ -65,7 +65,7 @@ save_model(lb, lb_path)
 # load the model
 model = load_model(
     model_path
-) 
+)
 
 preds = inference(model, X_test)
 

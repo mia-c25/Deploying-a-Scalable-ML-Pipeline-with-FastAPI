@@ -4,6 +4,8 @@ from ml.data import process_data
 from sklearn.ensemble import RandomForestClassifier
 
 # Optional: implement hyperparameter tuning.
+
+
 def train_model(X_train, y_train):
     """
     Trains a machine learning model and returns it.
@@ -65,6 +67,7 @@ def inference(model, X):
     """
     return model.predict(X)
 
+
 def save_model(model, path):
     """ Serializes model to a file.
 
@@ -77,6 +80,7 @@ def save_model(model, path):
     """
     with open(path, "wb") as file:
         pickle.dump(model, file)
+
 
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
@@ -122,8 +126,6 @@ def performance_on_categorical_slice(
 
     """
 
-    
-
     data_slice = data[data[column_name] == slice_value]
 
     X_slice, y_slice, _, _ = process_data(
@@ -136,6 +138,6 @@ def performance_on_categorical_slice(
     )
 
     preds = inference(model, X_slice)
-    
+
     precision, recall, fbeta = compute_model_metrics(y_slice, preds)
     return precision, recall, fbeta
